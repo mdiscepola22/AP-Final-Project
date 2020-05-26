@@ -1,4 +1,9 @@
+import java.awt.Font;
+import java.util.Timer;
+import java.util.TimerTask;
+
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class Frame extends JFrame{
@@ -10,15 +15,27 @@ public class Frame extends JFrame{
 		setTitle("Juice Tycoon");
 		
 		JPanel menu = new JPanel();
-		menu.setSize(width, 1080);
+		menu.setSize(400, 1080);
+		
+		JLabel totalMoney = new JLabel();
+		totalMoney.setSize(360, 50);
+		totalMoney.setFont(new Font("Courier", Font.PLAIN, 48));
+		
+		Timer t = new Timer();
+		t.schedule(new TimerTask() {
+			@Override
+			public void run() {
+				totalMoney.setText(text);
+
+			}
+		}, 0, 1000);
+		
+		
+		
 	}
 
 	public static void main(String[] args) {
-<<<<<<< HEAD
 		new Frame();
-=======
->>>>>>> branch 'master' of https://github.com/mdiscepola22/AP-Final-Project.git
-
 	}
 
 }

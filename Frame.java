@@ -14,7 +14,10 @@ public class Frame extends JFrame{
 	}
 
 	public static void main(String[] args) {
+<<<<<<< HEAD
 		new Frame();
+=======
+>>>>>>> branch 'master' of https://github.com/mdiscepola22/AP-Final-Project.git
 
 	}
 

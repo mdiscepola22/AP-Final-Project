@@ -1,25 +1,8 @@
 
 public class BankAccount 
 {
-	private double balance;
-	
-	public BankAccount()
+	public static void main(String[] args)
 	{
-		balance = 0;
-	}
-	
-	public void deposit(double amt)
-	{
-		balance += amt;
-	}
-	
-	public void withdrawal(double amt)
-	{
-		balance -= amt;
-	}
-	
-	public double getBalance()
-	{
-		return balance;
+		System.out.println("hello");
 	}
 }

@@ -18,12 +18,6 @@ public class Factory {
 		cost*=2;
 		researchCost *=2;
 	}
-	
-	
-
-
-
-	
 
 	public int getCost() {
 		return cost;
@@ -41,6 +35,4 @@ public class Factory {
 		return researchCost;
 	}
 }
-
-
 

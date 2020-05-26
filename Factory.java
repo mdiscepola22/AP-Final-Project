@@ -3,27 +3,27 @@ public class Factory {
 	private int input;
 	private int output;
 	private int researchCost;
-	private static int totalJuice = 0;
+	
 
 	public Factory() {
 		 cost = 2000;
-		input = 8;
+		input = 120;
 		output = 1;
 		researchCost = 2;
 	}
 
 	public void upgrade() {
 		//change building appearance
-		output+=2;
+		output*=2;
 		cost*=2;
 		researchCost *=2;
 	}
+	
+	
 
 
 
-	public static int getTotalJuice() {
-		return totalJuice;
-	}
+	
 
 	public int getCost() {
 		return cost;

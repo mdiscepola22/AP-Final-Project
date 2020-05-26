@@ -7,15 +7,17 @@ public class Orchard {
 
 	public Orchard() {
 		cost = 2000;
-		output = 2 ;
+		output = 30 ;
 		researchCost = 2;
 	}
 
 	public void upgrade() {
 		//change building appearance
 		cost *=2;
-		output+=2;
+		output*=2;
 		researchCost *=2;
+		Stats stats = new Stats();
+		
 	}
 
 

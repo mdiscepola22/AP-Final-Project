@@ -9,9 +9,7 @@ public class Test {
 		
 		stats.startOrchardProduction();
 		stats.startFactoryProduction();
-		System.out.println("LPS: " + stats.getLPS());
-		System.out.println("JPS: " + stats.getJPS());
-		System.out.println("MPS: " + stats.getMPS());
+		
 		
 		
 		

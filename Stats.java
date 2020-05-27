@@ -113,16 +113,16 @@ public class Stats {
 		return r1.getOutput()*12;
 	}
 	
-	public void orchardUpgrade(Orchard orchard) {
-		orchard.upgrade();
-		totalMoney-=orchard.getCost();
-		totalResearch-=orchard.getResearchCost();
+	public void orchardUpgrade(int index) {
+		orchardList.get(index).upgrade();
+		totalMoney-=orchardList.get(index).getCost();
+		totalResearch-=orchardList.get(index).getResearchCost();
 	}
 	
-	public void factoryUpgrade(Factory factory) {
-		factory.upgrade();
-		totalMoney-=factory.getCost();
-		totalResearch-=factory.getResearchCost();
+	public void factoryUpgrade(int index) {
+		factoryList.get(index).upgrade();
+		totalMoney-=factoryList.get(index).getCost();
+		totalResearch-=factoryList.get(index).getResearchCost();
 	}
 	
 	

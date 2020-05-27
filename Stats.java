@@ -8,14 +8,15 @@ public class Stats {
 	private ArrayList<Factory> factoryList;
 	private int lemonsProduced;
 	private double totalMoney;
-	private int timerDelay;
+	private final int LEMON_PRICE;
+	
 
 	public Stats() {
 		orchardList = new ArrayList<>();
 		factoryList = new ArrayList<>();
 		lemonsProduced = 0;
 		totalMoney = 0;
-		timerDelay = 5000;
+		LEMON_PRICE = 4;
 	}
 
 	public void addOrchard(Orchard orchard) {
@@ -23,6 +24,10 @@ public class Stats {
 	}
 	public int getLemonsProduced() {
 		return lemonsProduced;
+	}
+	
+	public double getTotalMoney() {
+		return totalMoney;
 	}
 	
 	public void addFactory(Factory factory) {
@@ -52,7 +57,7 @@ public class Stats {
 			public void run() {
 				for(Factory f: factoryList) {
 					if(lemonsProduced >= f.getInput()) {
-						totalMoney+=4;
+						totalMoney+=LEMON_PRICE;
 						lemonsProduced-=f.getInput();
 					}
 				}
@@ -60,6 +65,32 @@ public class Stats {
 			}
 		}, 0, 1000);
 	}
+	
+	public int getLPS() {
+		int count = 0;
+		for(Orchard o:orchardList) {
+			count+=o.getOutput();
+		}
+		return count;
+	}
+	
+	public int getJPS() {
+		int count =0;
+		for(Factory f:factoryList) {
+			count+=f.getOutput();
+		}
+		return count;
+	}
+	
+	public int getMPS() {
+		int count = 0;
+		for(Factory f:factoryList) {
+			count+=f.getOutput();
+		}
+		return count * LEMON_PRICE;
+	}
+	
+	
 
 
 }

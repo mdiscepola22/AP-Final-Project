@@ -16,7 +16,6 @@ public class Orchard {
 		cost *=2;
 		output*=2;
 		researchCost *=2;
-		Stats stats = new Stats();
 		
 	}
 

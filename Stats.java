@@ -9,6 +9,8 @@ public class Stats {
 	private int lemonsProduced;
 	private double totalMoney;
 	private final int LEMON_PRICE;
+	private Research r1;
+	private int totalResearch;
 	
 
 	public Stats() {
@@ -17,6 +19,8 @@ public class Stats {
 		lemonsProduced = 0;
 		totalMoney = 0;
 		LEMON_PRICE = 4;
+		r1 = new Research();
+		totalResearch = 0;
 	}
 
 	public void addOrchard(Orchard orchard) {
@@ -66,6 +70,16 @@ public class Stats {
 		}, 0, 1000);
 	}
 	
+	public void startResearchProduction() {
+		Timer t = new Timer();
+		t.schedule(new TimerTask() {
+			@Override
+			public void run() {
+				totalResearch+=r1.getOutput();
+			}
+		}, 0, 5000);
+	}
+	
 	public int getLPS() {
 		int count = 0;
 		for(Orchard o:orchardList) {
@@ -88,6 +102,10 @@ public class Stats {
 			count+=f.getOutput();
 		}
 		return count * LEMON_PRICE;
+	}
+	
+	public int getRPM() {
+		return r1.getOutput()*12;
 	}
 	
 	

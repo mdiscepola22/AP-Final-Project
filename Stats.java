@@ -39,7 +39,6 @@ public class Stats {
 	
 	public int getTotalMoney() {
 		return totalMoney;
-		
 	}
 	
 	public void addFactory() {
@@ -139,4 +138,3 @@ public class Stats {
 
 
 }
-

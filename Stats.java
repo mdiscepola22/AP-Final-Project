@@ -21,8 +21,8 @@ public class Stats {
 		LEMON_PRICE = 4;
 		r1 = new Research();
 		totalResearch = 0;
-		addOrchard();
-		addFactory();
+		orchardList.add(new Orchard());
+		factoryList.add(new Factory());
 	}
 
 	public void addOrchard() {

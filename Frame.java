@@ -15,6 +15,9 @@ public class Frame extends JFrame{
 	public Frame(){
 		
 		final Stats stats = new Stats();
+		stats.startFactoryProduction();
+		stats.startOrchardProduction();
+		stats.startResearchProduction();
 		
 		setLayout(null);
 		setResizable(false);
@@ -101,8 +104,8 @@ public class Frame extends JFrame{
 		t.schedule(new TimerTask() {
 			@Override
 			public void run() {
-				totalMoney.setText("$ " + stats.getTotalMoney());
-				mps.setText("$ " + stats.getMPS() + " /s");
+				totalMoney.setText("$" + stats.getTotalMoney());
+				mps.setText("$" + stats.getMPS() + " /s");
 				lps.setText(stats.getLPS() + " lemons/s");
 				jps.setText(stats.getJPS() + " juice/s");
 				rpm.setText(stats.getRPM() + " research/m");

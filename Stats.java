@@ -25,6 +25,7 @@ public class Stats {
 
 	public void addOrchard() {
 		orchardList.add(new Orchard());
+		totalMoney-=2000;
 	}
 	public int getLemonsProduced() {
 		return lemonsProduced;
@@ -32,10 +33,12 @@ public class Stats {
 	
 	public double getTotalMoney() {
 		return totalMoney;
+		
 	}
 	
 	public void addFactory() {
 		factoryList.add(new Factory());
+		totalMoney-=2000;
 	}
 	
 
@@ -106,6 +109,18 @@ public class Stats {
 	
 	public int getRPM() {
 		return r1.getOutput()*12;
+	}
+	
+	public void orchardUpgrade(Orchard orchard) {
+		orchard.upgrade();
+		totalMoney-=orchard.getCost();
+		totalResearch-=orchard.getResearchCost();
+	}
+	
+	public void factoryUpgrade(Factory factory) {
+		factory.upgrade();
+		totalMoney-=factory.getCost();
+		totalResearch-=factory.getResearchCost();
 	}
 	
 	

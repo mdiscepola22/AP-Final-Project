@@ -17,6 +17,7 @@ public class Factory {
 		output*=2;
 		cost*=2;
 		researchCost *=2;
+		
 	}
 
 	public int getCost() {

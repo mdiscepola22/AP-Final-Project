@@ -28,8 +28,10 @@ public class Stats {
 	}
 
 	public void addOrchard() {
+		if(orchardList.size()<8) {
 		orchardList.add(new Orchard());
 		totalMoney-=2000;
+		}
 	}
 	public int getLemonsProduced() {
 		return lemonsProduced;
@@ -41,8 +43,10 @@ public class Stats {
 	}
 	
 	public void addFactory() {
+		if(factoryList.size() < 4) {
 		factoryList.add(new Factory());
 		totalMoney-=2000;
+		}
 	}
 	
 	public int getNumFactories() {
@@ -52,32 +56,24 @@ public class Stats {
 		return orchardList.size();
 	}
 	
-
-	public void startOrchardProduction() {
-
-		Timer t = new Timer();
-		t.schedule(new TimerTask() {
-			@Override
-			public void run() {
-				for (Orchard o:orchardList) {
-					lemonsProduced+= o.getOutput();
-				}
-				System.out.println("Lemons Produced: " + lemonsProduced);
-
-			}
-		}, 0, 1000);
+	public void updateStats() {
+		for (Orchard o:orchardList) {
+			lemonsProduced+= o.getOutput();
+		}
+		System.out.println("Lemons Produced: " + lemonsProduced);
+		for(Factory f: factoryList) {
+			lemonsProduced=Math.max(lemonsProduced-f.getInput(), 0);
+		}
+		totalMoney+=LEMON_PRICE*getJPS();
+		System.out.println("Total Money: " + totalMoney);
 	}
 	
-	public void startFactoryProduction() {
+	public void startProduction() {
 		Timer t = new Timer();
 		t.schedule(new TimerTask() {
 			@Override
 			public void run() {
-				for(Factory f: factoryList) {
-					totalMoney+=LEMON_PRICE*(lemonsProduced/60.0);
-					lemonsProduced=Math.max(lemonsProduced-f.getInput(), 0);
-				}
-				System.out.println("Total Money: " + totalMoney);
+				updateStats();
 			}
 		}, 0, 1000);
 	}

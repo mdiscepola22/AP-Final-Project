@@ -18,8 +18,7 @@ public class Frame extends JFrame{
 	public Frame(){
 		
 		final Stats stats = new Stats();
-		stats.startFactoryProduction();
-		stats.startOrchardProduction();
+		stats.startProduction();
 		stats.startResearchProduction();
 		
 		setLayout(null);

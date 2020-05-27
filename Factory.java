@@ -4,6 +4,7 @@ public class Factory {
 	private int output;
 	private int researchCost;
 	
+	
 
 	public Factory() {
 		 cost = 2000;

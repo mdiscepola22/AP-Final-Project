@@ -7,7 +7,7 @@ public class Stats {
 	private ArrayList<Orchard> orchardList;
 	private ArrayList<Factory> factoryList;
 	private int lemonsProduced;
-	private double totalMoney;
+	private int totalMoney;
 	private final int LEMON_PRICE;
 	private Research r1;
 	private int totalResearch;
@@ -18,7 +18,7 @@ public class Stats {
 		factoryList = new ArrayList<>();
 		lemonsProduced = 0;
 		totalMoney = 0;
-		LEMON_PRICE = 4;
+		LEMON_PRICE = 1000;
 		r1 = new Research();
 		totalResearch = 0;
 		orchardList.add(new Orchard());
@@ -33,7 +33,7 @@ public class Stats {
 		return lemonsProduced;
 	}
 	
-	public double getTotalMoney() {
+	public int getTotalMoney() {
 		return totalMoney;
 		
 	}
@@ -94,19 +94,14 @@ public class Stats {
 	}
 	
 	public int getJPS() {
-		int count =0;
-		for(Factory f:factoryList) {
-			count+=f.getOutput();
-		}
-		return count;
+		
+		int jps = getLPS() /factoryList.get(0).getInput();
+		return jps;
 	}
 	
 	public int getMPS() {
-		int count = 0;
-		for(Factory f:factoryList) {
-			count+=f.getOutput();
-		}
-		return count * LEMON_PRICE;
+		return (getJPS() * LEMON_PRICE);
+		
 	}
 	
 	public int getRPM() {

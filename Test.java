@@ -8,8 +8,6 @@ public class Test {
 		Stats stats = new Stats();
 		
 		stats.startOrchardProduction();
-		stats.addFactory();
-		stats.addFactory();
 		stats.startFactoryProduction();
 		System.out.println("LPS: " + stats.getLPS());
 		System.out.println("JPS: " + stats.getJPS());

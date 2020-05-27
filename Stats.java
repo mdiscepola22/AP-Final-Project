@@ -23,8 +23,8 @@ public class Stats {
 		totalResearch = 0;
 	}
 
-	public void addOrchard(Orchard orchard) {
-		orchardList.add(orchard);
+	public void addOrchard() {
+		orchardList.add(new Orchard());
 	}
 	public int getLemonsProduced() {
 		return lemonsProduced;
@@ -34,8 +34,8 @@ public class Stats {
 		return totalMoney;
 	}
 	
-	public void addFactory(Factory factory) {
-		factoryList.add(factory);
+	public void addFactory() {
+		factoryList.add(new Factory());
 	}
 	
 

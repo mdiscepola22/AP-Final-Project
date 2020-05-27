@@ -2,6 +2,7 @@ import java.awt.Font;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -67,6 +68,20 @@ public class Frame extends JFrame{
 		menu.add(rpm);
 		
 		
+		JButton buyFac = new JButton();
+		stats.addFactory(factory);
+		
+		
+		
+		JButton buyOrc = new JButton();
+		
+		
+		
+		
+		
+		
+		
+		
 		Timer t = new Timer();
 		t.schedule(new TimerTask() {
 			@Override
@@ -79,11 +94,6 @@ public class Frame extends JFrame{
 
 			}
 		}, 0, 1000);
-		
-		
-		
-		
-		
 		
 		
 		menu.setVisible(true);

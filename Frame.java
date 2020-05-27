@@ -11,7 +11,6 @@ import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.SwingConstants;
 
 public class Frame extends JFrame{
 	
@@ -111,7 +110,8 @@ public class Frame extends JFrame{
 		upgradeFac.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e)
 			{
-				stats.factoryUpgrade(Integer.parseInt((String) facUpgrade.getSelectedItem()));
+				if(facUpgrade.getSelectedIndex() != 0)
+					stats.factoryUpgrade(Integer.parseInt((String) facUpgrade.getSelectedItem()));
 			}
 		});
 		menu.add(upgradeFac);
@@ -129,7 +129,8 @@ public class Frame extends JFrame{
 		upgradeOrc.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e)
 			{
-				stats.orchardUpgrade(Integer.parseInt((String) orcUpgrade.getSelectedItem()));
+				if(orcUpgrade.getSelectedIndex() != 0)
+					stats.orchardUpgrade(Integer.parseInt((String) orcUpgrade.getSelectedItem()));
 			}
 		});
 		menu.add(upgradeOrc);
@@ -160,7 +161,7 @@ public class Frame extends JFrame{
 				}
 
 			}
-		}, 0, 100);
+		}, 5, 100);
 		
 		
 		menu.setVisible(true);

@@ -7,7 +7,7 @@ public class Factory {
 	
 
 	public Factory() {
-		 cost = 2000;
+		cost = 2000;
 		input = 60;
 		output = 1;
 		researchCost = 2;

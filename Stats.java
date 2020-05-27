@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -43,6 +45,13 @@ public class Stats {
 		totalMoney-=2000;
 	}
 	
+	public int getNumFactories() {
+		return factoryList.size();
+	}
+	public int getNumOrchards() {
+		return orchardList.size();
+	}
+	
 
 	public void startOrchardProduction() {
 
@@ -65,10 +74,8 @@ public class Stats {
 			@Override
 			public void run() {
 				for(Factory f: factoryList) {
-					if(lemonsProduced >= f.getInput()) {
-						totalMoney+=LEMON_PRICE;
-						lemonsProduced-=f.getInput();
-					}
+					totalMoney+=LEMON_PRICE*(lemonsProduced/60.0);
+					lemonsProduced=Math.max(lemonsProduced-f.getInput(), 0);
 				}
 				System.out.println("Total Money: " + totalMoney);
 			}
@@ -92,14 +99,26 @@ public class Stats {
 		}
 		return count;
 	}
-	
-	public int getJPS() {
-		
-		int jps = getLPS() /factoryList.get(0).getInput();
-		return jps;
+	class SortFactoryList implements Comparator<Factory> {
+		public int compare(Factory a, Factory b) {
+			return a.getOutput()-b.getOutput();
+		}
 	}
 	
-	public int getMPS() {
+	public double getJPS() {
+		double juiceProduced = 0;
+		int lemonsRemaining = getLPS();
+		Collections.sort(factoryList, new SortFactoryList());
+		Collections.reverse(factoryList);
+
+		for(int i=0;i<factoryList.size();i++) {
+			juiceProduced+=(double)factoryList.get(i).getOutput()*Math.min(((double)lemonsRemaining/60.0),1);
+			lemonsRemaining=Math.max(lemonsRemaining-factoryList.get(i).getInput(), 0);
+		}
+		return juiceProduced;
+	}
+	
+	public double getMPS() {
 		return (getJPS() * LEMON_PRICE);
 		
 	}

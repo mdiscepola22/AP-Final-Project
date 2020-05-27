@@ -15,7 +15,7 @@ public class Orchard {
 		//change building appearance
 		cost *=2;
 		output*=2;
-		researchCost *=2;;
+		researchCost *=2;
 		
 	}
 

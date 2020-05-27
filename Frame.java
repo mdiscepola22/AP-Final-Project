@@ -64,10 +64,10 @@ public class Frame extends JFrame{
 		t.schedule(new TimerTask() {
 			@Override
 			public void run() {
-				totalMoney.setText("$" + stats.getMoney());
-				mps.setText("$" + stats.getMPS() + " /s");
+				totalMoney.setText("$" + stats.getTotalMoney());
+			mps.setText("$" + stats.getMPS() + " /s");
 				lps.setText(stats.getLPS() + "lemons/s");
-				jps.setText(stats.getJPS() + "juice/s");
+			jps.setText(stats.getJPS() + "juice/s");
 
 			}
 		}, 0, 1000);

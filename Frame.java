@@ -59,15 +59,23 @@ public class Frame extends JFrame{
 		jps.setVisible(true);
 		menu.add(jps);
 		
+		final JLabel rpm = new JLabel("rpm");
+		rpm.setSize(360, 44);
+		rpm.setFont(new Font("Courier", Font.PLAIN, 40));
+		rpm.setLocation(20, 290);
+		rpm.setVisible(true);
+		menu.add(rpm);
+		
 		
 		Timer t = new Timer();
 		t.schedule(new TimerTask() {
 			@Override
 			public void run() {
 				totalMoney.setText("$" + stats.getTotalMoney());
-			mps.setText("$" + stats.getMPS() + " /s");
+				mps.setText("$" + stats.getMPS() + " /s");
 				lps.setText(stats.getLPS() + "lemons/s");
-			jps.setText(stats.getJPS() + "juice/s");
+				jps.setText(stats.getJPS() + "juice/s");
+				rpm.setText(stats.getRPM() + "research/m");
 
 			}
 		}, 0, 1000);

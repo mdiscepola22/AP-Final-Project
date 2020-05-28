@@ -1,4 +1,6 @@
+import java.awt.Color;
 import java.awt.Font;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -6,11 +8,13 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import javax.swing.ComboBoxModel;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 
 public class Frame extends JFrame{
 	
@@ -34,9 +38,83 @@ public class Frame extends JFrame{
 		menu.setLayout(null);
 		
 		JPanel pics = new JPanel();
-		pics.setSize(1520, 1080);
+		pics.setSize(1920, 1080);
 		pics.setLocation(0, 0);
 		pics.setLayout(null);
+		
+		ImageIcon factory3 = new ImageIcon("./factory1.png");
+		Image scalefactory = factory3.getImage().getScaledInstance(228, 184,Image.SCALE_SMOOTH);
+		factory3 = new ImageIcon(scalefactory);
+		JLabel f3 = new JLabel(factory3);
+		f3.setSize(1490,1080);
+		f3.setLocation(190,-13);
+		add(f3);
+		
+		ImageIcon factory4 = new ImageIcon(scalefactory);
+		JLabel f4 = new JLabel(factory4);
+		f4.setSize(1490,1080);
+		f4.setLocation(343,79);
+		add(f4);
+		
+		ImageIcon factory2 = new ImageIcon(scalefactory);
+		JLabel f2 = new JLabel(factory2);
+		f2.setSize(1490,1080);
+		f2.setLocation(513,-23);
+		add(f2);
+		
+		ImageIcon factory1 = new ImageIcon(scalefactory);
+		JLabel f1 = new JLabel(factory1);
+		f1.setSize(1490,1080);
+		f1.setLocation(360,-109);
+		add(f1);
+		
+		ImageIcon orchard8 = new ImageIcon("./orchard1.png");
+		Image scaleOrchard = new ImageIcon("./orchard1.png").getImage().getScaledInstance(228, 184, Image.SCALE_SMOOTH);
+		orchard8 = new ImageIcon(scaleOrchard);
+		JLabel o8 = new JLabel(orchard8);
+		o8.setSize(228,184);
+		o8.setLocation(259,507);
+		add(o8);
+		
+		ImageIcon orchard5 = new ImageIcon(scaleOrchard);
+		JLabel o5 = new JLabel(orchard5);
+		o5.setSize(228, 184);
+		o5.setLocation(279,322);
+		add(o5);
+		
+		ImageIcon orchard6 = new ImageIcon(scaleOrchard);
+		JLabel o6 = new JLabel(orchard5);
+		o6.setSize(228, 184);
+		o6.setLocation(427,405);
+		add(o6);
+		
+		ImageIcon orchard7 = new ImageIcon(scaleOrchard);
+		JLabel o7 = new JLabel(orchard7);
+		o7.setSize(228,184);
+		o7.setLocation(105,415);
+		add(o7);
+		
+		ImageIcon orchard3 = new ImageIcon(scaleOrchard);
+		JLabel o3 = new JLabel(orchard3);
+		o3.setSize(228,184);
+		o3.setLocation(0,0);
+		add(o3);
+		
+		
+		
+		
+		
+		ImageIcon base = new ImageIcon("./BaseMap.png");
+		Image scalebase = base.getImage().getScaledInstance(1520, 811,Image.SCALE_SMOOTH);
+		base = new ImageIcon(scalebase);
+		JLabel base1 = new JLabel(base);
+		base1.setSize(1490,1080);
+		base1.setLocation(0,0);
+		add(base1);
+		
+		
+		
+		
 		
 		final JLabel totalMoney = new JLabel("total money");
 		totalMoney.setSize(360, 52);
@@ -110,8 +188,7 @@ public class Frame extends JFrame{
 		upgradeFac.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e)
 			{
-				if(facUpgrade.getSelectedIndex() != 0)
-					stats.factoryUpgrade(Integer.parseInt((String) facUpgrade.getSelectedItem()));
+				stats.factoryUpgrade(Integer.parseInt((String) facUpgrade.getSelectedItem()));
 			}
 		});
 		menu.add(upgradeFac);
@@ -129,8 +206,7 @@ public class Frame extends JFrame{
 		upgradeOrc.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e)
 			{
-				if(orcUpgrade.getSelectedIndex() != 0)
-					stats.orchardUpgrade(Integer.parseInt((String) orcUpgrade.getSelectedItem()));
+				stats.orchardUpgrade(Integer.parseInt((String) orcUpgrade.getSelectedItem()));
 			}
 		});
 		menu.add(upgradeOrc);
@@ -161,7 +237,7 @@ public class Frame extends JFrame{
 				}
 
 			}
-		}, 5, 100);
+		}, 0, 100);
 		
 		
 		menu.setVisible(true);
@@ -177,3 +253,4 @@ public class Frame extends JFrame{
 	}
 
 }
+

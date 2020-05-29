@@ -12,7 +12,7 @@ public class Factory {
 		input = 60;
 		output = 1;
 		researchCost = 2;
-		level = 1;
+		level = 0;
 	}
 
 	public void upgrade() {

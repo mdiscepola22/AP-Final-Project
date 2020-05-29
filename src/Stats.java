@@ -151,6 +151,15 @@
 		}
 		
 		
+		public ArrayList<Factory> getFactoryList()
+		{
+			return factoryList;
+		}
+		
+		public ArrayList<Orchard> getOrchardsList()
+		{
+			return orchardList;
+		}
 
 
 	}

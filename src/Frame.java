@@ -44,20 +44,20 @@ public class Frame extends JFrame{
 		pics.setLayout(null);
 		
 		
-		final ArrayList<Image> facs = new ArrayList<Image>();
-		final ArrayList<Image> orcs = new ArrayList<Image>();
+		final ArrayList<ImageIcon> facs = new ArrayList<ImageIcon>();
+		final ArrayList<ImageIcon> orcs = new ArrayList<ImageIcon>();
 		
 		
 		
-		Image imageFac1 = new ImageIcon("./factory1.png").getImage().getScaledInstance(228, 184, Image.SCALE_SMOOTH);
-		Image imageFac2 = new ImageIcon("./factory2.png").getImage().getScaledInstance(228, 184, Image.SCALE_SMOOTH);
-		Image imageFac3 = new ImageIcon("./factory3.png").getImage().getScaledInstance(228, 184, Image.SCALE_SMOOTH);
-		Image imageFac4 = new ImageIcon("./factory4.png").getImage().getScaledInstance(228, 184, Image.SCALE_SMOOTH);
+		ImageIcon imageFac1 = new ImageIcon(new ImageIcon("./factory1.png").getImage().getScaledInstance(228, 184, Image.SCALE_SMOOTH));
+		ImageIcon imageFac2 = new ImageIcon(new ImageIcon("./factory2.png").getImage().getScaledInstance(228, 184, Image.SCALE_SMOOTH));
+		ImageIcon imageFac3 = new ImageIcon(new ImageIcon("./factory3.png").getImage().getScaledInstance(228, 184, Image.SCALE_SMOOTH));
+		ImageIcon imageFac4 = new ImageIcon(new ImageIcon("./factory4.png").getImage().getScaledInstance(228, 184, Image.SCALE_SMOOTH));
 		
-		Image imageOrc1 = new ImageIcon("./orchard1.png").getImage().getScaledInstance(228, 184, Image.SCALE_SMOOTH);
-		Image imageOrc2 = new ImageIcon("./orchard2.png").getImage().getScaledInstance(228, 184, Image.SCALE_SMOOTH);
-		Image imageOrc3 = new ImageIcon("./orchard3.png").getImage().getScaledInstance(228, 184, Image.SCALE_SMOOTH);
-		Image imageOrc4 = new ImageIcon("./orchard4.png").getImage().getScaledInstance(228, 184, Image.SCALE_SMOOTH);
+		ImageIcon imageOrc1 = new ImageIcon(new ImageIcon("./orchard1.png").getImage().getScaledInstance(228, 184, Image.SCALE_SMOOTH));
+		ImageIcon imageOrc2 = new ImageIcon(new ImageIcon("./orchard2.png").getImage().getScaledInstance(228, 184, Image.SCALE_SMOOTH));
+		ImageIcon imageOrc3 = new ImageIcon(new ImageIcon("./orchard3.png").getImage().getScaledInstance(228, 184, Image.SCALE_SMOOTH));
+		ImageIcon imageOrc4 = new ImageIcon(new ImageIcon("./orchard4.png").getImage().getScaledInstance(228, 184, Image.SCALE_SMOOTH));
 		
 		
 		facs.add(imageFac1);
@@ -78,14 +78,14 @@ public class Frame extends JFrame{
 		
 		for(int i = 0; i < 4; i++)
 		{
-			factories.add(new JLabel(new ImageIcon(imageFac1)));
+			factories.add(new JLabel((imageFac1)));
 			factories.get(i).setSize(1490,1080);
 			add(factories.get(i));
 		}
 		
 		for(int i = 0; i < 8; i++)
 		{
-			orchards.add(new JLabel(new ImageIcon(imageOrc1)));
+			orchards.add(new JLabel(imageOrc1));
 			orchards.get(i).setSize(228,184);
 			add(orchards.get(i));
 		}
@@ -194,10 +194,15 @@ public class Frame extends JFrame{
 		upgradeFac.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e)
 			{
+				int index = Integer.parseInt((String) facUpgrade.getSelectedItem()) - 1;
+				
 				try
 				{
-					stats.factoryUpgrade(Integer.parseInt((String) facUpgrade.getSelectedItem()) - 1);
-					//factories.get(Integer.parseInt((String) facUpgrade.getSelectedItem()) - 1).setIcon();
+					stats.factoryUpgrade(index);
+					factories.get(index).setIcon(facs.get(stats.getFactoryList().get(index).getLevel()));
+					factories.get(index).repaint();
+					repaint();
+					
 				}
 				catch(IllegalArgumentException x) {}
 			}
@@ -217,10 +222,14 @@ public class Frame extends JFrame{
 		upgradeOrc.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e)
 			{
+				int index = Integer.parseInt((String) orcUpgrade.getSelectedItem()) - 1;
+				
 				try
 				{
-					stats.orchardUpgrade(Integer.parseInt((String) orcUpgrade.getSelectedItem()) - 1);
-					//orchards.get(Integer.parseInt((String) orcUpgrade.getSelectedItem()) - 1).setIcon();
+					stats.orchardUpgrade(index);
+					orchards.get(index).setIcon(orcs.get(stats.getOrchardsList().get(index).getLevel()));
+					orchards.get(index).repaint();
+					repaint();
 				}
 				catch(IllegalArgumentException x) {}
 			}

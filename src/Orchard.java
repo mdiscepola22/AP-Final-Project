@@ -10,7 +10,7 @@ public class Orchard {
 		cost = 2000;
 		output = 30 ;
 		researchCost = 2;
-		level = 1;
+		level = 0;
 	}
 
 	public void upgrade() {

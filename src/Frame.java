@@ -44,8 +44,9 @@ public class Frame extends JFrame{
 		
 		
 		
-		ImageIcon factory1 = new ImageIcon("./factory1.png");
+		
 		Image scalefactory = new ImageIcon("./factory1.png").getImage().getScaledInstance(228, 184, Image.SCALE_SMOOTH);
+		ImageIcon factory1 = new ImageIcon(scalefactory);
 		JLabel f1 = new JLabel(factory1);
 		f1.setSize(1490,1080);
 		f1.setLocation(360,-109);
@@ -71,8 +72,9 @@ public class Frame extends JFrame{
 		
 		
 		
-		ImageIcon orchard1 = new ImageIcon("./orchard1.png");
+		
 		Image scaleOrchard = new ImageIcon("./orchard1.png").getImage().getScaledInstance(228, 184, Image.SCALE_SMOOTH);
+		ImageIcon orchard1 = new ImageIcon(scaleOrchard);
 		JLabel o1 = new JLabel(orchard1);
 		o1.setSize(228,184);
 		o1.setLocation(619,122);

@@ -7,7 +7,7 @@ public class Orchard {
 
 
 	public Orchard() {
-		cost = 2000;
+		cost = 4000;
 		output = 30 ;
 		researchCost = 2;
 		level = 0;

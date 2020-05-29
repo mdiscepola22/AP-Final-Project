@@ -80,15 +80,19 @@ public class Frame extends JFrame{
 		{
 			factories.add(new JLabel((imageFac1)));
 			factories.get(i).setSize(1490,1080);
+			factories.get(i).setVisible(false);
 			add(factories.get(i));
 		}
+		factories.get(0).setVisible(true);
 		
 		for(int i = 0; i < 8; i++)
 		{
 			orchards.add(new JLabel(imageOrc1));
 			orchards.get(i).setSize(228,184);
+			orchards.get(i).setVisible(false);
 			add(orchards.get(i));
 		}
+		orchards.get(0).setVisible(true);
 		
 		
 		
@@ -151,8 +155,8 @@ public class Frame extends JFrame{
 		menu.add(jps);
 		
 		final JLabel rpm = new JLabel("rpm");
-		rpm.setSize(360, 46);
-		rpm.setFont(new Font("Courier", Font.PLAIN, 40));
+		rpm.setSize(360, 34);
+		rpm.setFont(new Font("Courier", Font.PLAIN, 30));
 		rpm.setLocation(20, 280);
 		rpm.setVisible(true);
 		menu.add(rpm);
@@ -165,6 +169,7 @@ public class Frame extends JFrame{
 			public void actionPerformed(ActionEvent e)
 			{
 				stats.addFactory();
+				factories.get(stats.getNumFactories() - 1).setVisible(true);
 			}
 		});
 		menu.add(buyFac);
@@ -177,6 +182,7 @@ public class Frame extends JFrame{
 			public void actionPerformed(ActionEvent e)
 			{
 				stats.addOrchard();
+				orchards.get(stats.getNumOrchards() - 1).setVisible(true);
 			}
 		});
 		menu.add(buyOrc);
@@ -200,7 +206,6 @@ public class Frame extends JFrame{
 				{
 					stats.factoryUpgrade(index);
 					factories.get(index).setIcon(facs.get(stats.getFactoryList().get(index).getLevel()));
-					factories.get(index).repaint();
 					repaint();
 					
 				}
@@ -228,7 +233,6 @@ public class Frame extends JFrame{
 				{
 					stats.orchardUpgrade(index);
 					orchards.get(index).setIcon(orcs.get(stats.getOrchardsList().get(index).getLevel()));
-					orchards.get(index).repaint();
 					repaint();
 				}
 				catch(IllegalArgumentException x) {}
@@ -255,7 +259,7 @@ public class Frame extends JFrame{
 				mps.setText("$" + stats.getMPS() + " /s");
 				lps.setText(stats.getLPS() + " lemons/s");
 				jps.setText(stats.getJPS() + " juice/s");
-				rpm.setText(stats.getRPM() + " research/m");
+				rpm.setText(stats.getResearch() + " research pts");
 				
 				
 				if(facUpgrade.getItemCount() < stats.getNumFactories() + 1)

@@ -22,7 +22,7 @@
 			factoryList = new ArrayList<>();
 			lemonsProduced = 0;
 			totalMoney = 0;
-			LEMON_PRICE = 1000;
+			LEMON_PRICE = 100;
 			r1 = new Research();
 			totalResearch = 0;
 			orchardList.add(new Orchard());
@@ -86,7 +86,7 @@
 				public void run() {
 					totalResearch+=r1.getOutput();
 				}
-			}, 0, 5000);
+			}, 0, 15000);
 		}
 		
 		public int getLPS() {
@@ -120,12 +120,12 @@
 			
 		}
 		
-		public int getRPM() {
-			return r1.getOutput()*12;
+		public int getResearch() {
+			return totalResearch;
 		}
 		
 		public void orchardUpgrade(int index) {
-			if(totalMoney - orchardList.get(index).getCost() >= 0 && orchardList.get(index).getLevel() < 4)
+			if(totalMoney - orchardList.get(index).getCost() >= 0 && orchardList.get(index).getLevel() < 4 && totalResearch - orchardList.get(index).getResearchCost() >= 0)
 			{
 				orchardList.get(index).upgrade();
 				totalMoney-=orchardList.get(index).getCost();
@@ -138,7 +138,7 @@
 		}
 		
 		public void factoryUpgrade(int index) {
-			if(totalMoney - factoryList.get(index).getCost() >= 0 && factoryList.get(index).getLevel() < 4)
+			if(totalMoney - factoryList.get(index).getCost() >= 0 && factoryList.get(index).getLevel() < 4 && totalResearch - factoryList.get(index).getResearchCost() >= 0)
 			{
 				factoryList.get(index).upgrade();
 				totalMoney-=factoryList.get(index).getCost();

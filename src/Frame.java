@@ -209,7 +209,11 @@ public class Frame extends JFrame{
 		upgradeFac.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e)
 			{
-				stats.factoryUpgrade(Integer.parseInt((String) facUpgrade.getSelectedItem()));
+				try
+				{
+					stats.factoryUpgrade(Integer.parseInt((String) facUpgrade.getSelectedItem()));
+				}
+				catch(Exception x) {}
 			}
 		});
 		menu.add(upgradeFac);
@@ -227,7 +231,11 @@ public class Frame extends JFrame{
 		upgradeOrc.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e)
 			{
-				stats.orchardUpgrade(Integer.parseInt((String) orcUpgrade.getSelectedItem()));
+				try
+				{
+					stats.orchardUpgrade(Integer.parseInt((String) orcUpgrade.getSelectedItem()));
+				}
+				catch(Exception x) {}
 			}
 		});
 		menu.add(upgradeOrc);

@@ -212,8 +212,9 @@ public class Frame extends JFrame{
 				try
 				{
 					stats.factoryUpgrade(Integer.parseInt((String) facUpgrade.getSelectedItem()));
+					
 				}
-				catch(Exception x) {}
+				catch(IllegalArgumentException x) {}
 			}
 		});
 		menu.add(upgradeFac);
@@ -235,7 +236,7 @@ public class Frame extends JFrame{
 				{
 					stats.orchardUpgrade(Integer.parseInt((String) orcUpgrade.getSelectedItem()));
 				}
-				catch(Exception x) {}
+				catch(IllegalArgumentException x) {}
 			}
 		});
 		menu.add(upgradeOrc);

@@ -196,8 +196,8 @@ public class Frame extends JFrame{
 			{
 				try
 				{
-					stats.factoryUpgrade(Integer.parseInt((String) facUpgrade.getSelectedItem()));
-					//factories.get(Integer.parseInt((String) facUpgrade.getSelectedItem())).setIcon((Icon) facs.get(facs.indexOf(factories.get(Integer.parseInt((String) facUpgrade.getSelectedItem()))) + 1));
+					stats.factoryUpgrade(Integer.parseInt((String) facUpgrade.getSelectedItem()) - 1);
+					//factories.get(Integer.parseInt((String) facUpgrade.getSelectedItem()) - 1).setIcon();
 				}
 				catch(IllegalArgumentException x) {}
 			}
@@ -219,8 +219,8 @@ public class Frame extends JFrame{
 			{
 				try
 				{
-					stats.orchardUpgrade(Integer.parseInt((String) orcUpgrade.getSelectedItem()));
-					orchards.get(Integer.parseInt((String) orcUpgrade.getSelectedItem())).setIcon((Icon) orcs.get(orcs.indexOf(orchards.get(Integer.parseInt((String) orcUpgrade.getSelectedItem()))) + 1));
+					stats.orchardUpgrade(Integer.parseInt((String) orcUpgrade.getSelectedItem()) - 1);
+					//orchards.get(Integer.parseInt((String) orcUpgrade.getSelectedItem()) - 1).setIcon();
 				}
 				catch(IllegalArgumentException x) {}
 			}

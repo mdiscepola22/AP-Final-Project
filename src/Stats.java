@@ -125,15 +125,29 @@
 		}
 		
 		public void orchardUpgrade(int index) {
-			orchardList.get(index).upgrade();
-			totalMoney-=orchardList.get(index).getCost();
-			totalResearch-=orchardList.get(index).getResearchCost();
+			if(totalMoney - orchardList.get(index).getCost() < 0)
+			{
+				orchardList.get(index).upgrade();
+				totalMoney-=orchardList.get(index).getCost();
+				totalResearch-=orchardList.get(index).getResearchCost();
+			}
+			else
+			{
+				throw new IllegalArgumentException();
+			}
 		}
 		
 		public void factoryUpgrade(int index) {
-			factoryList.get(index).upgrade();
-			totalMoney-=factoryList.get(index).getCost();
-			totalResearch-=factoryList.get(index).getResearchCost();
+			if(totalMoney - factoryList.get(index).getCost() < 0)
+			{
+				factoryList.get(index).upgrade();
+				totalMoney-=factoryList.get(index).getCost();
+				totalResearch-=factoryList.get(index).getResearchCost();
+			}
+			else
+			{
+				throw new IllegalArgumentException();
+			}
 		}
 		
 		

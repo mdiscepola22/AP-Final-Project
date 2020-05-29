@@ -3,12 +3,14 @@ public class Orchard {
 	private int cost;
 	private int output;
 	private int researchCost;
+	private int level;
 
 
 	public Orchard() {
 		cost = 2000;
 		output = 30 ;
 		researchCost = 2;
+		level = 1;
 	}
 
 	public void upgrade() {
@@ -16,6 +18,7 @@ public class Orchard {
 		cost *=2;
 		output*=2;
 		researchCost *=2;
+		level++;
 		
 	}
 
@@ -32,5 +35,10 @@ public class Orchard {
 
 	public int getResearchCost() {
 		return researchCost;
+	}
+	
+	public int getLevel()
+	{
+		return level;
 	}
 }

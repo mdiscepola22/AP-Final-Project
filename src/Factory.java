@@ -3,6 +3,7 @@ public class Factory {
 	private int input;
 	private int output;
 	private int researchCost;
+	private int level;
 	
 	
 
@@ -11,6 +12,7 @@ public class Factory {
 		input = 60;
 		output = 1;
 		researchCost = 2;
+		level = 1;
 	}
 
 	public void upgrade() {
@@ -18,6 +20,7 @@ public class Factory {
 		output*=2;
 		cost*=2;
 		researchCost *=2;
+		level++;
 		
 	}
 
@@ -35,6 +38,11 @@ public class Factory {
 
 	public int getResearchCost() {
 		return researchCost;
+	}
+	
+	public int getLevel()
+	{
+		return level;
 	}
 }
 

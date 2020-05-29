@@ -125,7 +125,7 @@
 		}
 		
 		public void orchardUpgrade(int index) {
-			if(totalMoney - orchardList.get(index).getCost() >= 0)
+			if(totalMoney - orchardList.get(index).getCost() >= 0 && orchardList.get(index).getLevel() < 4)
 			{
 				orchardList.get(index).upgrade();
 				totalMoney-=orchardList.get(index).getCost();
@@ -138,7 +138,7 @@
 		}
 		
 		public void factoryUpgrade(int index) {
-			if(totalMoney - factoryList.get(index).getCost() >= 0)
+			if(totalMoney - factoryList.get(index).getCost() >= 0 && factoryList.get(index).getLevel() < 4)
 			{
 				factoryList.get(index).upgrade();
 				totalMoney-=factoryList.get(index).getCost();

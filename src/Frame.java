@@ -228,6 +228,13 @@ public class Frame extends JFrame{
 		menu.add(upgradeOrc);
 		
 		
+		JLabel rules = new JLabel("Max factories is 4, max orchards is 8. Level 2 upgrade costs $4k and 2 research. Level 3 upgrade costs $8k and 4 research. Level 4 upgrade costs $16k and 8 research.");
+		rules.setSize(1920, 25);
+		rules.setFont(new Font("Courier", Font.PLAIN, 19));
+		rules.setLocation(55, 1050);
+		rules.setVisible(true);
+		add(rules);
+		
 		
 		
 		
